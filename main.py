@@ -1,7 +1,9 @@
 
 import mysql.connector
+import os
+from dotenv import load_dotenv
 from Ticket import Ticket
-
+load_dotenv()
 # object
 # ticket1 = Ticket("login Problem", "cannot login")
 
@@ -21,8 +23,8 @@ tickets = []
 connection = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="alra143DSAzz",
-    database="ticket_system"
+password=os.getenv("DB_PASSWORD"),
+database="ticket_system"
 )
 
 cursor = connection.cursor()
